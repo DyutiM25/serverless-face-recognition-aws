@@ -55,12 +55,4 @@ This architecture ensures **scalability, concurrency, and loose coupling** betwe
 
 ---
 
-## 📊 Architecture Diagram
 
-```mermaid
-flowchart LR
-    A[Client / IoT Device] -->|Send frame| B[Face Detection Lambda]
-    B -->|Detected faces| C[SQS Request Queue]
-    C --> D[Face Recognition Lambda]
-    D -->|Classification Results| E[SQS Response Queue]
-    E -->|Poll results| A
